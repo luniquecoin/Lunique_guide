@@ -1,15 +1,15 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='luq.conf'
-CONFIGFOLDER='.luq'
-COIN_DAEMON='luqd'
-COIN_CLI='luq-cli'
-COIN_TGZ='https://github.com/luniquecoin/LuniqueCoin/releases/download/v3.0/luq_Linux.zip'
-COIN_ZIP='luq_Linux.zip'
-COIN_NAME='luq'
-COIN_PORT=30000
-RPC_PORT=30001
+CONFIG_FILE='travelpay.conf'
+CONFIGFOLDER='.travelpay'
+COIN_DAEMON='travelpayd'
+COIN_CLI='travelpay-cli'
+COIN_TGZ='https://github.com/TravelPay/TravelPay/releases/download/v1.0.0/travelpay-1.0.0-aarch64-linux-gnu.zip'
+COIN_ZIP='travelpay-1.0.0-aarch64-linux-gnu.zip'
+COIN_NAME='travelpay'
+COIN_PORT=35160
+RPC_PORT=35161
 
 NODEIP=$(curl -s4 icanhazip.com)
 
@@ -165,9 +165,9 @@ function important_information() {
  echo -e "================================================================================================================================"
 }
 
-function luq_start() {
+function travelpay_start() {
 sleep 10
-./luqd
+./travelpayd
 }
 
 function setup_node() {
@@ -176,7 +176,7 @@ function setup_node() {
   create_key
   update_config
   important_information
-  luq_start
+  travelpay_start
 }
 
 
